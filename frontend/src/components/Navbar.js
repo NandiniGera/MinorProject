@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import logo from './images/logo.png'
+import { Link } from 'react-scroll'
 
 import './Navbar.css'
 
@@ -24,17 +25,16 @@ const Navbar = () => {
                 </div>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <li className='nav-item'>
-                        <a href='/' onClick={closeMenu}>Home</a>
+                        <Link to="hero" spy={true} smooth={true} offset={-100} duraction={500} onClick={closeMenu}>Home</Link>
                     </li>
                     <li className='nav-item'>
-                        <a href='#about' onClick={closeMenu}>About</a>
+                        <Link to="about" spy={true} smooth={true} offset={-100} duraction={500} onClick={closeMenu}>About</Link>
                     </li>
                     <li className='nav-item'>
-                        <a href='#testimonials' onClick={closeMenu}>Testimonials</a>
+                        <Link to="testimonials" spy={true} smooth={true} offset={-100} duraction={500} onClick={closeMenu}>Testimonial</Link>
                     </li>
                     <li className='nav-item'>
-                        <a href='#demo' onClick={closeMenu}>Demo</a>
-                    </li>
+                        <Link to="demo" spy={true} smooth={true} offset={-130} duraction={500} onClick={closeMenu}>Demo</Link>                    </li>
                 </ul>
             </nav>
         </div>
