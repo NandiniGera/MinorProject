@@ -21,7 +21,7 @@ app.add_middleware(
 )
 
 MODEL = tf.keras.models.load_model("saved_model\model")
-CLASS_NAMES = ["accident", "fire", "dense_traffic", "sparse_traffic"]
+CLASS_NAMES = ["Accident", "Fire", "Dense Traffic", "Sparse Traffic"]
 
 @app.get("/ping")
 async def ping():
@@ -36,15 +36,14 @@ async def predict(
     file: UploadFile = File(...)
 ):
     image = read_file_as_image(await file.read())
-    img_batch = np.expand_dims(image, 0)
+    resized_image = tf.image.resize(image, [180, 180])
+    img_batch = np.expand_dims(resized_image, 0)
     
     predictions = MODEL.predict(img_batch)
 
     predicted_class = CLASS_NAMES[np.argmax(predictions[0])]
-    confidence = np.max(predictions[0])
     return {
-        'class': predicted_class,
-        'confidence': float(confidence)
+        'class': predicted_class
     }
 
 if __name__ == "__main__":
