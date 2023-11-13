@@ -20,7 +20,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODEL = tf.keras.models.load_model("Models\ImageClassification_CNN.ipynb")
+MODEL = tf.keras.models.load_model("saved_model\model")
 CLASS_NAMES = ["accident", "fire", "dense_traffic", "sparse_traffic"]
 
 @app.get("/ping")
