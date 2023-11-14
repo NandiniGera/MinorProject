@@ -14,7 +14,7 @@ import image from "./bg.png";
 import { DropzoneArea } from 'material-ui-dropzone';
 import { common } from '@material-ui/core/colors';
 import Clear from '@material-ui/icons/Clear';
-
+import { Link } from "react-scroll";
 
 
 
@@ -67,8 +67,10 @@ const useStyles = makeStyles((theme) => ({
   },
   imageCard: {
     margin: "auto",
+    padding: 200,
     maxWidth: 400,
     height: 500,
+    alignItems: 'center',
     backgroundColor: 'transparent',
     boxShadow: '0px 9px 70px 0px rgb(0 0 0 / 30%) !important',
     borderRadius: '15px',
@@ -146,8 +148,11 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "35px"
   },
   underlined: {
-    textDecoration: 'None',
-    color : "white"
+    textDecoration: 'none',
+    color: 'white',
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
 
 }));
@@ -218,16 +223,34 @@ export const ImageUpload = () => {
 
   return (
     <React.Fragment>
-      <AppBar position="static" className={classes.appbar}>
+      <AppBar position="sticky" className={classes.appbar}>
         <Toolbar>
           <Avatar src={cblogo}></Avatar>
           <div className={classes.grow} />
           <Typography className={classes.title} variant="h4">
-            TRAFFIC GUARD
+          <Link
+              to="/"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className = {classes.underlined}
+            >
+              TRAFFIC GUARD
+            </Link>
           </Typography>
           <div className={classes.margin}  />
           <Typography className={classes.title} variant="h6">
-            <a href="About" className = {classes.underlined}>About</a> 
+          <Link
+              to="About"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className = {classes.underlined}
+            >
+              About
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>
