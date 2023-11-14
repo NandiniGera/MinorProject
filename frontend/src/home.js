@@ -31,7 +31,7 @@ const axios = require("axios").default;
 
 const useStyles = makeStyles((theme) => ({
   grow: {
-    flexGrow: 1,
+    flexGrow: 0.01,
   },
   clearButton: {
     width: "-webkit-fill-available",
@@ -135,13 +135,21 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   appbar: {
-    background: '#be6a77',
+    background: '',
     boxShadow: 'none',
     color: 'white'
   },
   loader: {
     color: '#be6a77 !important',
-  }
+  },
+  margin: {
+    marginLeft: "35px"
+  },
+  underlined: {
+    textDecoration: 'None',
+    color : "white"
+  },
+
 }));
 export const ImageUpload = () => {
   const classes = useStyles();
@@ -212,11 +220,15 @@ export const ImageUpload = () => {
     <React.Fragment>
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Avatar src={cblogo}></Avatar>
+          <div className={classes.grow} />
+          <Typography className={classes.title} variant="h4">
             TRAFFIC GUARD
           </Typography>
-          <div className={classes.grow} />
-          <Avatar src={cblogo}></Avatar>
+          <div className={classes.margin}  />
+          <Typography className={classes.title} variant="h6">
+            <a href="About" className = {classes.underlined}>About</a> 
+          </Typography>
         </Toolbar>
       </AppBar>
       <Container maxWidth={false} className={classes.mainContainer} disableGutters={true}>
@@ -282,6 +294,9 @@ export const ImageUpload = () => {
             </Grid>}
         </Grid >
       </Container >
+      <div id = "About">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda labore eum aperiam perferendis qui, et necessitatibus nobis saepe dolor sit deleniti neque possimus atque aspernatur rem voluptatibus nam, ipsum deserunt.
+      </div>
     </React.Fragment >
   );
 };
