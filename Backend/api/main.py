@@ -20,7 +20,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODEL = tf.keras.models.load_model("saved_model\finalModel")
+MODEL = tf.keras.models.load_model("saved_model/finalModel")
 CLASS_NAMES = ["Accident", "Fire", "Dense Traffic", "Sparse Traffic"]
 
 @app.get("/ping")

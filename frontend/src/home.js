@@ -31,7 +31,7 @@ const axios = require("axios").default;
 
 const useStyles = makeStyles((theme) => ({
   grow: {
-    flexGrow: 0.01,
+    flexGrow: 0.03,
   },
   clearButton: {
     width: "-webkit-fill-available",
@@ -55,19 +55,20 @@ const useStyles = makeStyles((theme) => ({
   },
   gridContainer: {
     justifyContent: "center",
-    padding: "4em 1em 0 1em",
+    padding: "2em 0.5em 0 0.5em",
   },
+  //background image dimensions;
   mainContainer: {
     backgroundImage: `url(${image})`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
-    height: "93vh",
+    height: "130vh",
     marginTop: "8px",
   },
   imageCard: {
     margin: "auto",
-    padding: 200,
+    padding: 100,
     maxWidth: 400,
     height: 500,
     alignItems: 'center',
@@ -81,10 +82,16 @@ const useStyles = makeStyles((theme) => ({
   noImage: {
     margin: "auto",
     width: 400,
-    height: "400 !important",
+    height: "100 !important",
   },
   input: {
     display: 'none',
+    margin: "auto",
+    padding: 100,
+    maxWidth: 400,
+    height: 500,
+    alignItems: 'center',
+    backgroundColor: 'transparent',
   },
   uploadIcon: {
     background: 'white',
@@ -227,7 +234,7 @@ export const ImageUpload = () => {
         <Toolbar>
           <Avatar src={cblogo}></Avatar>
           <div className={classes.grow} />
-          <Typography className={classes.title} variant="h4">
+          <Typography className={classes.title} variant="h5">
           <Link
               to="/"
               spy={true}
@@ -239,6 +246,7 @@ export const ImageUpload = () => {
               TRAFFIC GUARD
             </Link>
           </Typography>
+          <div style={{ marginRight: '700px' }} />
           <div className={classes.margin}  />
           <Typography className={classes.title} variant="h6">
           <Link
@@ -318,7 +326,12 @@ export const ImageUpload = () => {
         </Grid >
       </Container >
       <div id = "About">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda labore eum aperiam perferendis qui, et necessitatibus nobis saepe dolor sit deleniti neque possimus atque aspernatur rem voluptatibus nam, ipsum deserunt.
+      Traffic accidents and fires are major problems in urban areas, causing significant loss of life and property. Early detection of these events can help to mitigate their impact by allowing for timely intervention. However, traditional methods of detection, such as human monitoring of CCTV footage, are inefficient and unreliable. 
+
+This project aims to develop a machine learning system that can detect traffic sparse or dense, fire or accident from input images. The system will be trained on a massive dataset of images labeled with the corresponding traffic conditions or incidents. Once trained, the system will be able to identify traffic conditions and incidents in real-time from live video feeds or images.
+
+This system has the potential to revolutionize road safety and traffic efficiency. It can provide early warning of traffic congestion, accidents, and other hazards, allowing motorists and emergency responders to take appropriate action. It can also be used to develop new traffic management systems that can dynamically adjust traffic signals and signage to improve traffic flow.
+
       </div>
     </React.Fragment >
   );
