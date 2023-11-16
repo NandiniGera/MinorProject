@@ -14,7 +14,7 @@ import image from "./bg.png";
 import { DropzoneArea } from 'material-ui-dropzone';
 import { common } from '@material-ui/core/colors';
 import Clear from '@material-ui/icons/Clear';
-
+import { Link } from "react-scroll";
 
 
 
@@ -31,7 +31,7 @@ const axios = require("axios").default;
 
 const useStyles = makeStyles((theme) => ({
   grow: {
-    flexGrow: 1,
+    flexGrow: 0.01,
   },
   clearButton: {
     width: "-webkit-fill-available",
@@ -67,8 +67,10 @@ const useStyles = makeStyles((theme) => ({
   },
   imageCard: {
     margin: "auto",
+    padding: 200,
     maxWidth: 400,
     height: 500,
+    alignItems: 'center',
     backgroundColor: 'transparent',
     boxShadow: '0px 9px 70px 0px rgb(0 0 0 / 30%) !important',
     borderRadius: '15px',
@@ -135,13 +137,24 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   appbar: {
-    background: '#be6a77',
+    background: '',
     boxShadow: 'none',
     color: 'white'
   },
   loader: {
     color: '#be6a77 !important',
-  }
+  },
+  margin: {
+    marginLeft: "35px"
+  },
+  underlined: {
+    textDecoration: 'none',
+    color: 'white',
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  },
+
 }));
 export const ImageUpload = () => {
   const classes = useStyles();
@@ -210,13 +223,35 @@ export const ImageUpload = () => {
 
   return (
     <React.Fragment>
-      <AppBar position="static" className={classes.appbar}>
+      <AppBar position="sticky" className={classes.appbar}>
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
-            TRAFFIC GUARD
-          </Typography>
-          <div className={classes.grow} />
           <Avatar src={cblogo}></Avatar>
+          <div className={classes.grow} />
+          <Typography className={classes.title} variant="h4">
+          <Link
+              to="/"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className = {classes.underlined}
+            >
+              TRAFFIC GUARD
+            </Link>
+          </Typography>
+          <div className={classes.margin}  />
+          <Typography className={classes.title} variant="h6">
+          <Link
+              to="About"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className = {classes.underlined}
+            >
+              About
+            </Link>
+          </Typography>
         </Toolbar>
       </AppBar>
       <Container maxWidth={false} className={classes.mainContainer} disableGutters={true}>
@@ -282,6 +317,9 @@ export const ImageUpload = () => {
             </Grid>}
         </Grid >
       </Container >
+      <div id = "About">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda labore eum aperiam perferendis qui, et necessitatibus nobis saepe dolor sit deleniti neque possimus atque aspernatur rem voluptatibus nam, ipsum deserunt.
+      </div>
     </React.Fragment >
   );
 };
