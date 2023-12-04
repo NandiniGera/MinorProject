@@ -8,15 +8,17 @@ import Container from "@material-ui/core/Container";
 import React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { Paper, CardActionArea, CardMedia, Grid, TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Button, CircularProgress } from "@material-ui/core";
+import { Paper, CardActionArea, CardMedia, Grid, TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Button, CircularProgress, Divider } from "@material-ui/core";
 import cblogo from "./cblogo.PNG";
+import cblogo2 from "./cblogo2.PNG";
 import image from "./bg.png";
+// import image2 from "./bg2.png";
 import { DropzoneArea } from 'material-ui-dropzone';
 import { common } from '@material-ui/core/colors';
 import Clear from '@material-ui/icons/Clear';
 import { Link } from "react-scroll";
 
-
+import './aboutpage.css';
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -31,7 +33,7 @@ const axios = require("axios").default;
 
 const useStyles = makeStyles((theme) => ({
   grow: {
-    flexGrow: 0.03,
+    flexGrow: 0.01,
   },
   clearButton: {
     width: "-webkit-fill-available",
@@ -224,9 +226,6 @@ export const ImageUpload = () => {
     setImage(true);
   };
 
-  if (data) {
-    confidence = (parseFloat(data.confidence) * 100).toFixed(2);
-  }
 
   return (
     <React.Fragment>
@@ -246,7 +245,7 @@ export const ImageUpload = () => {
               TRAFFIC GUARD
             </Link>
           </Typography>
-          <div style={{ marginRight: '700px' }} />
+          {/* <div style={{ marginRight: '700px' }} /> */}
           <div className={classes.margin}  />
           <Typography className={classes.title} variant="h6">
           <Link
@@ -326,11 +325,40 @@ export const ImageUpload = () => {
         </Grid >
       </Container >
       <div id = "About">
-      Traffic accidents and fires are major problems in urban areas, causing significant loss of life and property. Early detection of these events can help to mitigate their impact by allowing for timely intervention. However, traditional methods of detection, such as human monitoring of CCTV footage, are inefficient and unreliable. 
+        {/* <h1>
+          About Traffic Guard
+        </h1>
 
-This project aims to develop a machine learning system that can detect traffic sparse or dense, fire or accident from input images. The system will be trained on a massive dataset of images labeled with the corresponding traffic conditions or incidents. Once trained, the system will be able to identify traffic conditions and incidents in real-time from live video feeds or images.
+      <h4>Traffic accidents and fires are major problems in urban areas, causing significant loss of life and property. Early detection of these events can help to mitigate their impact by allowing for timely intervention. </h4>
+<Divider>
 
-This system has the potential to revolutionize road safety and traffic efficiency. It can provide early warning of traffic congestion, accidents, and other hazards, allowing motorists and emergency responders to take appropriate action. It can also be used to develop new traffic management systems that can dynamically adjust traffic signals and signage to improve traffic flow.
+</Divider>
+Traffic Guard is trained on a massive dataset of images labeled with the corresponding traffic conditions or incidents and can identify traffic conditions and incidents in real-time.
+
+It can provide early warning of traffic congestion, accidents, and other hazards, allowing motorists and emergency responders to take appropriate action. It can also be used to develop new traffic management systems that can dynamically adjust traffic signals and signage to improve traffic flow. */}
+<div className="about-container">
+      <div className="about-content">
+        <h1 className="about-title">About Traffic Guard</h1>
+        <p className="about-details">
+        Traffic Guard is trained on a massive dataset of images labeled with the corresponding traffic conditions or incidents and is able to identify traffic conditions and incidents from real world images.
+        </p>
+        {/* <hr className="divider" /> */}
+        <p className="about-details">
+        Our system has the potential to revolutionize road safety and traffic efficiency. It can provide early warning of traffic congestion, accidents, and other hazards, allowing motorists and emergency responders to take appropriate action. It can also be used to develop new traffic management systems that can dynamically adjust traffic signals and signage to improve traffic flow.
+        </p>
+        {/* <p className="about-details">
+          It can provide early warning of traffic congestion, accidents, and other hazards, allowing motorists and
+          emergency responders to take appropriate action. It can also be used to develop new traffic management
+          systems that can dynamically adjust traffic signals and signage to improve traffic flow.
+        </p> */}
+        <button className="try-now-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            Try Now
+          </button>
+      </div>
+      <div className="image-container">
+          <img src={cblogo2} className="about-image" />
+        </div>
+    </div>
 
       </div>
     </React.Fragment >
