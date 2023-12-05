@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
     height: 500,
     alignItems: 'center',
     backgroundColor: 'transparent',
-    boxShadow: '0px 9px 70px 0px rgb(0 0 0 / 30%) !important',
+    boxShadow: '0px 9px 70px 0px rgb(0 0 0 / 70%) !important',
     borderRadius: '15px',
   },
   imageCardEmpty: {
@@ -146,7 +146,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   appbar: {
-    background: '',
+    background: 'rgb(7, 87, 38)',
     boxShadow: 'none',
     color: 'white'
   },
@@ -256,9 +256,13 @@ export const ImageUpload = () => {
               duration={500}
               className = {classes.underlined}
             >
-              About
+               About Us
+             
             </Link>
           </Typography>
+<Typography variant="body1" style={{ fontStyle: 'italic' , marginLeft: '520px' }}>
+Empowering roads with AI vigilance: A safer journey, one click at a time!
+</Typography>
         </Toolbar>
       </AppBar>
       <Container maxWidth={false} className={classes.mainContainer} disableGutters={true}>
